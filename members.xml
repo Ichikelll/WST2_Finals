@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<members>
+  <member>
+    <id>1</id>
+    <name>John Doe</name>
+    <email>john@gmail.com</email>
+    <password>1234</password>
+  </member>
+  <member>
+    <id>2</id>
+    <name>Sophia Bautista</name>
+    <email>SophiaNerry@gmail.com</email>
+    <password>Kirbylat</password>
+  </member>
+  <member>
+    <id>3</id>
+    <name>John Exekiel De Guzman</name>
+    <email>johnexekieldeguzman@gmail.com</email>
+    <password>123456789</password>
+  </member>
+  <member>
+    <id>4</id>
+    <name>Lanz Gabriel Vergara</name>
+    <email>vergaralanzgabriel@gmail.com</email>
+    <password>1234</password>
+  </member>
+  <member>
+    <id>5</id>
+    <name>Iris Campbell</name>
+    <email>Iris@gmail.com</email>
+    <password>1234</password>
+  </member>
+  <member>
+    <id>6</id>
+    <name>Jhiliane Avery Dela Cruz</name>
+    <email>Avery@gmail.com</email>
+    <password>1234</password>
+  </member>
+<member><id>7</id><name>Kirbylat</name><email>Kirbylat@gmail.com</email><password>1234</password></member></members>

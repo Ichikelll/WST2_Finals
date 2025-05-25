@@ -1,0 +1,75 @@
+<?php
+session_start();
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: index.php");
+    exit();
+}
+
+$xml = simplexml_load_file("members.xml");
+$userEmail = $_SESSION['user_email'];
+$error = '';
+$success = '';
+
+// Find current member in XML
+$member = null;
+foreach ($xml->member as $m) {
+    if ((string)$m->email === $userEmail) {
+        $member = $m;
+        break;
+    }
+}
+
+if (!$member) {
+    // User not found (should not happen)
+    header("Location: logout.php");
+    exit();
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $name = trim($_POST['name'] ?? '');
+    $password = trim($_POST['password'] ?? '');
+
+    if (!$name) {
+        $error = "Name cannot be empty.";
+    } else {
+        $member->name = htmlspecialchars($name);
+        if ($password) {
+            $member->password = $password;  // Remember, plain text passwords!
+        }
+        $xml->asXML("members.xml");
+        $_SESSION['user_name'] = $name;
+        $success = "Profile updated successfully.";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile - Membership System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Your Profile</h1>
+    <p><a href="home.php">Back to Home</a> | <a href="logout.php">Logout</a></p>
+    <?php if ($error): ?>
+        <p style="color:red;"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
+    <?php if ($success): ?>
+        <p style="color:green;"><?= htmlspecialchars($success) ?></p>
+    <?php endif; ?>
+
+    <form method="post" action="profile.php">
+        <label>Name:</label><br>
+        <input type="text" name="name" value="<?= htmlspecialchars($member->name) ?>" required><br>
+        <label>Email (cannot change):</label><br>
+        <input type="email" value="<?= htmlspecialchars($member->email) ?>" disabled><br>
+        <label>New Password (leave blank to keep current):</label><br>
+        <input type="password" name="password"><br>
+        <input type="submit" value="Update Profile">
+    </form>
+</div>
+</body>
+</html>
