@@ -36,4 +36,28 @@
     <email>Avery@gmail.com</email>
     <password>1234</password>
   </member>
-<member><id>7</id><name>Kirbylat</name><email>Kirbylat@gmail.com</email><password>1234</password></member></members>
+  <member>
+    <id>7</id>
+    <name>Kirbylat</name>
+    <email>Kirbylat@gmail.com</email>
+    <password>1234</password>
+  </member>
+  <member>
+    <id>8</id>
+    <name>Tommy DG</name>
+    <email>MangTomas@gmail.com</email>
+    <password>1234</password>
+  </member>
+  <member>
+    <id>9</id>
+    <name>Jewel DG</name>
+    <email>JewelSparkles@gmail.com</email>
+    <password>1234</password>
+  </member>
+  <member>
+    <id>10</id>
+    <name>Macy DG</name>
+    <email>macy@gmail.com</email>
+    <password>1234</password>
+  </member>
+</members>
